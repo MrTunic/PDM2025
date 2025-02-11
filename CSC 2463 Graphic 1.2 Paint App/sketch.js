@@ -1,5 +1,6 @@
 let colors = ['orange', 'blue', 'red', 'green', 'yellow', 'magenta', 'black', 'white', 'brown', 'cyan'];
 let dragging = false;
+let selectedColor = 'black'; // fix error
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
