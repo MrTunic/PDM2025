@@ -2,9 +2,9 @@ let lime, ninja, robot;
 let character1, character2, character3;
 
 function preload() {
-  lime = loadImage("lime.png");
-  ninja = loadImage("ninja.png");
-  robot = loadImage("robot.png");
+  lime = loadImage("Lime.png");
+  ninja = loadImage("Ninja.png");
+  robot = loadImage("Robot.png");
 }
 
 function setup() {
