@@ -97,7 +97,7 @@ class Bug {
         } else {
             push();
             translate(this.x, this.y);
-            rotate(atan2(this.direction.y, this.direction.x));
+            rotate(atan2(this.direction.y, this.direction.x) + HALF_PI); // Fix rotation due to my drawing having the wrong orientation
             image(bugSprites, -15, -15, 30, 30, frameIndex * 32, 0, 32, 32);
             pop();
         }
