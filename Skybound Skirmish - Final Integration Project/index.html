@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Skybound Skirmish</title>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAGAAAAAAAAAAAAAAA" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+  <script src="https://unpkg.com/@gohai/p5.webserial@^1/libraries/p5.webserial.js"></script>
+  <script src="https://unpkg.com/tone@15.1.22/build/Tone.js"></script>
+</head>
+<body>
+  <script>
+    // Sound setup
+    const distortion = new Tone.Distortion(0.4).toDestination();
+    const reverb = new Tone.Reverb({ decay: 2, wet: 0.3 }).toDestination();
+
+    const fmSynth = new Tone.FMSynth({
+      harmonicity: 2,
+      modulationIndex: 5,
+      oscillator: { type: "sine" },
+      envelope: { attack: 0.01, decay: 0.2, sustain: 0.5, release: 1 },
+      modulation: { type: "sine" }
+    }).toDestination();
+
+    const lfo = new Tone.LFO(5, 400, 600).start();
+    lfo.connect(fmSynth.frequency);
+
+    const shootSynth = new Tone.MembraneSynth().connect(reverb);
+
+    const sampler = new Tone.Sampler({
+      urls: { C4: "media/explosion.wav" },
+    }).connect(distortion);
+
+    const pattern = new Tone.Pattern((time, note) => {
+      fmSynth.triggerAttackRelease(note, "8n", time);
+    }, [
+      "B4", "C5", "D5", "B4", "C5", "D5",
+      "B4", "C5", "D5", "D5", "C5", "B4"
+    ], "upDown");
+    pattern.interval = "8n";
+
+    Tone.Transport.bpm.value = 90;
+
+    // Test shootSynth after Tone.start()
+    function setupAudioTest() {
+      setTimeout(() => {
+        shootSynth.triggerAttackRelease("D#5", "8n");
+        console.log("Test shoot sound triggered");
+      }, 1000); // Delay to ensure Tone.start()
+    }
+
+    function triggerShootSound() {
+      shootSynth.triggerAttackRelease("D#5", "8n");
+      console.log("Shoot sound triggered");
+    }
+
+    function triggerExplosionSound() {
+      sampler.triggerAttackRelease("C4", "8n");
+      console.log("ереклон sound triggered");
+    }
+  </script>
+  <script src="sketch.js"></script>
+</body>
+</html>
