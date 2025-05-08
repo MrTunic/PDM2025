@@ -19,8 +19,11 @@ Watch Skybound Skirmish in action! Check out the gameplay video here:
 ## Arduino Board Setup
 The game uses an Arduino to interface with a joystick and buzzer, providing physical feedback during play. Below is a photo of the setup along with the pin connections:
 
-![Arduino Setup](images/arduino_setup.jpg)  
+![Arduino Setup](images/arduino_setup_complete.jpg)
 *The Arduino board with joystick and buzzer connected. Joystick layout: SW -> D4, VRx -> A0, GND -> GND, +5V -> 5V. Buzzer: Pin (on the side with the X on top) -> D9, other pin -> GND.*
+
+![Joystick](images/arduino_setup_joystick.jpg) 
+![Buzzer](images/arduino_setup_buzzer.jpg)
 
 ## Thoughts About Future Development
 Skybound Skirmish has plenty of room to grow! Future enhancements could include:
