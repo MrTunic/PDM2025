@@ -14,7 +14,7 @@ Here are some screenshots showcasing Skybound Skirmish in action:
 
 ## Video of It Working
 Watch Skybound Skirmish in action! Check out the gameplay video here:  
-[Skybound Skirmish Gameplay Video](https://youtu.be/example)
+[Skybound Skirmish Gameplay & Ardunio Board Setup Video]([https://youtu.be/example](https://www.youtube.com/shorts/GV9FF-d2s0g))
 
 ## Arduino Board Setup
 The game uses an Arduino to interface with a joystick and buzzer, providing physical feedback during play. Below is a photo of the setup along with the pin connections:
